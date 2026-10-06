@@ -1,0 +1,51 @@
+{
+  "repository": "splunk/attack_data",
+  "commit": "4389fa7a4e74a7c083c0fbe448fa2c7c32378981",
+  "license": "Apache-2.0",
+  "license_url": "https://raw.githubusercontent.com/splunk/attack_data/4389fa7a4e74a7c083c0fbe448fa2c7c32378981/LICENSE",
+  "license_sha256": "8505946b2464fa90223996d99eecbc7639a86648ca071f0cac21695be2623a0a",
+  "metadata": [
+    {"id": "t1016", "path": "datasets/attack_techniques/T1016/discovery_commands/discovery_commands.yml", "sha256": "113d774c43e7b61b024fb3ac1d0fd33de90c535fef0e005baeb93150665ce47f"},
+    {"id": "t1049", "path": "datasets/attack_techniques/T1049/AD_discovery/AD_discovery.yml", "sha256": "354797ee480901361db5559475bc7d782be2ab5c61934d83c5b150e921ce499f"},
+    {"id": "t1018", "path": "datasets/attack_techniques/T1018/AD_discovery/AD_discovery.yml", "sha256": "75c24fb18e468a94fd0b6e01931b5a3a01d6f1bebd6cb72805147b23e57356d9"},
+    {"id": "t1087_002", "path": "datasets/attack_techniques/T1087.002/adsi_discovery/adsi_discovery.yml", "sha256": "f89b23865c51a4d2b23ad5da19b8ff6ba4e0b55220b3a159ccc7655e6eaab96c"},
+    {"id": "t1654", "path": "datasets/attack_techniques/T1654/eventlog_enumeration/eventlog_enumeration_old.yml", "sha256": "c908763e52bb61497284b17ea3f80769a2c2fe2b9449fd0eb403eca66fe95f31"}
+  ],
+  "items": [
+    {
+      "id": "t1016_sysmon", "technique_context": "T1016", "dataset_id": "cc9b25e5-efc9-11eb-926b-550bf0943fbb",
+      "path": "datasets/attack_techniques/T1016/discovery_commands/windows-sysmon.log",
+      "sha256": "90330baf06554a542d188162782c68140d3aa250f1e50f38b925ba26094507db", "size": 14564062
+    },
+    {
+      "id": "t1049_sysmon", "technique_context": "T1049", "dataset_id": "61da8e36-d038-4a92-900e-8f726bfc1b05",
+      "path": "datasets/attack_techniques/T1049/AD_discovery/windows-sysmon.log",
+      "sha256": "c81ad8f1e304bc38d72ed5137e6d2aa4c1d8347bddd152906daff79c8d773d2f", "size": 4640111
+    },
+    {
+      "id": "t1018_sysmon", "technique_context": "T1018", "dataset_id": "82e395f1-71d8-4cfc-8757-2dd3ab527e77",
+      "path": "datasets/attack_techniques/T1018/AD_discovery/windows-sysmon.log",
+      "sha256": "14e3617eac4e42926e56adcf5597fe3ca45f6a66e63facb5d408e9f718570e60", "size": 4853376
+    },
+    {
+      "id": "t1087_002_ps0", "technique_context": "T1087.002", "dataset_id": "acd06afa-c6d6-11ec-9d0f-acde48001122",
+      "path": "datasets/attack_techniques/T1087.002/adsi_discovery/windows-powershell-xml.log",
+      "sha256": "ab19473c356ff85c52ab15f5ae7290da07cef1308601866246b5d205f9e6c7a5", "size": 2673
+    },
+    {
+      "id": "t1087_002_ps1", "technique_context": "T1087.002", "dataset_id": "acd06afa-c6d6-11ec-9d0f-acde48001122",
+      "path": "datasets/attack_techniques/T1087.002/adsi_discovery/windows-powershell-xml1.log",
+      "sha256": "80488cb716665b3d2b7c6a55986967493fa204826f80654ac3b5633a3751b360", "size": 1361
+    },
+    {
+      "id": "t1087_002_ps2", "technique_context": "T1087.002", "dataset_id": "acd06afa-c6d6-11ec-9d0f-acde48001122",
+      "path": "datasets/attack_techniques/T1087.002/adsi_discovery/windows-powershell-xml2.log",
+      "sha256": "397dc31afb0dd9b38bd7da9f4696fa86e37e8fc630888cce6f401d9ed441b62b", "size": 1391
+    },
+    {
+      "id": "t1654_sysmon", "technique_context": "T1654", "dataset_id": "dc167f8b-3f9d-4460-9c98-8b6e703fd628",
+      "path": "datasets/attack_techniques/T1654/eventlog_enumeration/eventlog_enumeration.log",
+      "sha256": "b7d86de9df27311dfc987ce78cb0fc1ea1a70a479d758fad350c438065f72131", "size": 18657
+    }
+  ]
+}

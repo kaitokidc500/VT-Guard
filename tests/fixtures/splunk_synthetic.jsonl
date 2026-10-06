@@ -1,0 +1,2 @@
+{"Event":{"System":{"EventID":1,"EventRecordID":31,"Channel":"Microsoft-Windows-Sysmon/Operational","Computer":"LAB","TimeCreated":{"@SystemTime":"2026-10-06T14:01:01Z"}},"EventData":{"Data":[{"@Name":"UtcTime","#text":"2026-10-06T14:01:00Z"},{"@Name":"Image","#text":"C:\\Windows\\System32\\netstat.exe"},{"@Name":"CommandLine","#text":"netstat -ano"}]}}}
+{bad json

@@ -1,0 +1,13 @@
+{
+  "domain": "Enterprise ATT&CK",
+  "version": "19.2",
+  "release": "https://github.com/mitre-attack/attack-stix-data/releases/tag/v19.2",
+  "techniques": {
+    "T1016": "System Network Configuration Discovery",
+    "T1049": "System Network Connections Discovery",
+    "T1018": "Remote System Discovery",
+    "T1087.002": "Account Discovery: Domain Account",
+    "T1654": "Log Enumeration"
+  },
+  "mapping_policy": "Technique labels require scenario context plus event evidence; no labels from directory names or Wazuh rules alone."
+}

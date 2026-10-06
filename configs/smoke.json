@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "input_format": "wazuh-jsonl",
+  "input_path": "tests/fixtures/wazuh_synthetic.jsonl",
+  "source_dataset": "synthetic-parser-fixture",
+  "source_version": "fixture-v1",
+  "synthetic": true,
+  "output_dir": "artifacts/smoke"
+}

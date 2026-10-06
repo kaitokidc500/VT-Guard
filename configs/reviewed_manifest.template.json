@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "attack_version": "19.2",
+  "runs": [
+    {
+      "run_id": "REPLACE_WITH_VERIFIED_RUN_ID",
+      "scenario_family": "REPLACE_WITH_SCENARIO_FAMILY",
+      "split": "train",
+      "file_path": "REPLACE_WITH_RELATIVE_OR_ABSOLUTE_RAW_EXPORT_PATH",
+      "sha256": "REPLACE_WITH_RAW_FILE_SHA256",
+      "input_format": "wazuh-jsonl",
+      "source_dataset": "vt-guard-lab",
+      "source_version": "REPLACE_WITH_COLLECTION_VERSION",
+      "is_synthetic": false,
+      "annotations": [
+        {
+          "line": 1,
+          "activity": "attack",
+          "ttps": ["T1016"],
+          "reviewed_techniques": ["T1016", "T1049", "T1018", "T1087.002", "T1654"],
+          "confidence": 0.9,
+          "reviewed_by": "REPLACE_WITH_REVIEWER",
+          "evidence": ["REPLACE_WITH_INDEPENDENT_SCENARIO_AND_EVENT_EVIDENCE"]
+        }
+      ]
+    }
+  ]
+}
