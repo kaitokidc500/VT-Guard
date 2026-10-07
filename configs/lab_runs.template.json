@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "attack_version": "19.2",
+  "runs": [
+    {
+      "run_id": "REPLACE_WITH_VERIFIED_RUN_ID",
+      "scenario_family": "REPLACE_WITH_SCENARIO_FAMILY",
+      "split": "train",
+      "run_start_utc": "2026-10-07T14:00:00Z",
+      "run_end_utc": "2026-10-07T14:05:00Z",
+      "boundary_tolerance_seconds": 1.0,
+      "file_path": "REPLACE_WITH_RAW_EXPORT_PATH",
+      "input_format": "wazuh-jsonl",
+      "source_dataset": "vt-guard-lab",
+      "source_version": "REPLACE_WITH_COLLECTION_VERSION",
+      "is_synthetic": false
+    }
+  ]
+}

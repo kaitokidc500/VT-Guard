@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "input_format": "windows-event-xml",
-  "input_path": "data/public/splunk/t1654_eventlog_enumeration.log",
+  "input_path": "data/public/splunk/pinned/t1654_sysmon/eventlog_enumeration.log",
   "source_dataset": "splunk/attack_data:T1654/eventlog_enumeration",
   "source_version": "4389fa7a4e74a7c083c0fbe448fa2c7c32378981",
   "output_dir": "artifacts/audit_t1654"

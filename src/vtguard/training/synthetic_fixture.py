@@ -43,6 +43,9 @@ def make_fixture(root: Path) -> Path:
             (root / relative).write_bytes(content)
             runs.append({
                 "run_id": run_id, "scenario_family": run_id, "split": split,
+                "run_start_utc": timestamp,
+                "run_end_utc": timestamp.replace(":00Z", ":30Z"),
+                "boundary_tolerance_seconds": 1.0,
                 "file_path": relative.as_posix(), "sha256": hashlib.sha256(content).hexdigest(),
                 "input_format": "wazuh-jsonl", "source_dataset": "synthetic-baseline-fixture",
                 "source_version": "fixture-v1", "is_synthetic": True,

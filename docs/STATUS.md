@@ -1,4 +1,4 @@
-# Trạng thái VT-Guard — 2026-10-06 (Asia/Bangkok)
+# Trạng thái VT-Guard — cập nhật 2026-10-07 (Asia/Bangkok)
 
 ## Mốc 1: package, config và schema
 
@@ -84,3 +84,20 @@ triển khai SIEM, không có kết quả phát hiện hoặc đánh giá mô h�
   tệp CSV: API công khai trả 401 và endpoint giao diện trả 502 trong phiên này.
 - Bước tiếp: nhận raw lab và annotation độc lập; kiểm tra manifest, chia split
   cố định rồi train baseline thật. Sau đó bổ sung luật, GRU attention và fusion.
+- Đã tạo commit Git local cho mã/tài liệu; chưa tạo remote hoặc push. Mã Colab
+  hiện truyền commit đã ghim vào metadata của bundle khi chạy thực tế.
+- Loader hiện bắt buộc UTC bắt đầu/kết thúc run và kiểm tra event được chọn nằm
+  trong khoảng này; kiểm thử và smoke tổng hợp đã chạy lại, vẫn 8/8 đạt.
+
+## Mốc 6: chuẩn bị rà nhãn lab
+
+- Đã xây `review_runs.py prepare/compile`: tạo CSV nhãn trống từ raw và run
+  spec, rồi chỉ biên dịch những dòng đã được rà. Kiểm lại raw SHA-256, UID
+  dòng và toàn bộ cổng dữ liệu của baseline trước khi xuất manifest.
+- Đã kiểm thử vòng chuẩn bị → điền nhãn fixture → compile → loader, UID bị sửa
+  và dòng CSV bị xóa: `python -m unittest discover -s tests -v` **9/9 đạt**.
+- Đã chạy `python scripts/smoke_baseline.py` và CLI `review_runs.py prepare`
+  trên fixture tổng hợp. Smoke tạo/nạp bundle `synthetic_smoke`; đây không phải
+  dữ liệu hay đánh giá từ lab thật.
+- Chưa chạy công cụ trên export lab thật vì chưa có run được gán nhãn. Hướng
+  dẫn thao tác và mẫu run spec ở [lab_collection.md](lab_collection.md).

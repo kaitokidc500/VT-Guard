@@ -12,11 +12,15 @@ rà thêm nội dung lệnh trước khi mở rộng từ vựng.
 Manifest JSON có `schema_version=1.0`, `attack_version=19.2` và danh sách
 `runs`. Mỗi run cần ID, scenario family, split (`train`, `validation`, `test`),
 đường dẫn và SHA-256 raw, định dạng, nguồn/phiên, cùng annotation từng dòng.
+UTC bắt đầu/kết thúc run là bắt buộc; event được chọn phải nằm trong khoảng
+này (dung sai mặc định một giây, tối đa mười giây cho sai lệch đồng hồ đã ghi).
 Mỗi annotation cần nhãn `attack` hoặc `benign-admin`, danh sách năm TTP đã
 rà, TTP hiện diện, độ tin cậy, người rà và chứng cứ. Sự kiện không annotation
 không dùng huấn luyện. Không tự gán toàn bộ run tấn công là event tấn công.
 Một ví dụ manifest tổng hợp được tạo bởi `scripts/smoke_baseline.py` trong
 `artifacts/baseline_smoke_input/reviewed_manifest.json`.
+`scripts/review_runs.py prepare/compile` tạo bảng rà nhãn trống từ raw export
+và chuyển các dòng đã rà thành manifest sau khi xác thực lại checksum/UID.
 
 Kiểm tra trước train: checksum nguồn, đầy đủ annotation, thời điểm UTC, family
 không qua split, cùng raw content không qua split, không trùng quan sát, cả

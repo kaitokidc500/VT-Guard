@@ -34,6 +34,12 @@ class BaselineTests(unittest.TestCase):
             manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "crosses splits"):
                 load_reviewed(manifest_path, allow_synthetic=True)
+            manifest["runs"][7]["scenario_family"] = "restored_validation_family"
+            manifest["runs"][0]["run_start_utc"] = "2026-10-07T00:00:00Z"
+            manifest["runs"][0]["run_end_utc"] = "2026-10-07T00:01:00Z"
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "outside verified run boundary"):
+                load_reviewed(manifest_path, allow_synthetic=True)
 
     def test_only_train_vocabulary_and_online_offline_feature_parity(self):
         with tempfile.TemporaryDirectory() as tmp:

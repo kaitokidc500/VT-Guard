@@ -42,3 +42,8 @@ huấn luyện và nạp bundle chỉ bằng sự kiện **tổng hợp**; kết
 là đánh giá phát hiện thật. [Protocol](docs/experiment_protocol.md) mô tả
 manifest cần thiết trước khi huấn luyện thật. Notebook Colab chỉ điều phối
 module và cần GitHub URL/commit cùng reviewed manifest trên Drive.
+
+Khi có export lab, dùng `python scripts/review_runs.py prepare --spec
+configs/lab_runs.template.json --output-dir data/review` với một bản spec đã điền
+đường dẫn thật, rồi rà nhãn trong CSV. Lệnh `compile` và yêu cầu nhãn được mô tả
+trong [hướng dẫn thu thập lab](docs/lab_collection.md).
