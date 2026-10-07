@@ -168,3 +168,13 @@ triển khai SIEM, không có kết quả phát hiện hoặc đánh giá mô h�
 - Đã thử lại endpoint danh sách tệp Mendeley v3 được tài liệu hóa
   (`/datasets/publics/b8fmtzvpy8/files?version=3`): HTTP 401. Trang so sánh
   công khai liệt kê file nhưng chưa lấy được CSV để kiểm nhãn/phiên.
+
+## Mốc 12: URL GitHub đã được cung cấp
+
+- Người dùng cung cấp `https://github.com/kaitokidc500/VT-Guard.git`.
+  Đã cấu hình `origin` trong Git local và điền URL vào notebook Colab.
+- `git ls-remote ... HEAD` trả về rỗng: chưa xác nhận có commit trên remote.
+  Chưa push mã, raw hoặc artifact. Bước tiếp: đưa commit mã nguồn lên GitHub,
+  điền full SHA được push vào notebook, rồi chạy smoke trên Colab.
+- Dataset vẫn là cổng chặn huấn luyện thật: xem [kiểm toán public](public_data_audit.md)
+  và [điều kiện Colab](colab_training.md). Chưa có run lab được gán nhãn.
