@@ -21,8 +21,8 @@ và chia riêng cho đánh giá/adaptation v2 theo protocol.
 1. Repository đích đã được chỉ định:
    `https://github.com/kaitokidc500/VT-Guard.git`. Đưa source Git lên đó với
    quyền hiển thị phù hợp; raw, credentials, checkpoints và weights không đưa
-   vào Git. Sao chép full 40 ký tự commit SHA sau khi push. Remote local đã
-   cấu hình, nhưng chưa push.
+   vào Git. Nhánh `main` đã được push; notebook đang ghim commit mã nguồn
+   `f74196cf61803ebf2a6a5bfcf2d4302fbad9bbfc` đã kiểm thử local.
 2. Đưa reviewed manifest cùng raw có quyền sử dụng vào Drive, giữ nguyên cấu
    trúc đường dẫn tương đối. Rà báo cáo nguồn/nhãn/phiên trước khi tính điểm.
 3. Mở notebook, điền `REPO_URL`, `CODE_COMMIT`, `MANIFEST`, `OUTPUT_ROOT` rồi

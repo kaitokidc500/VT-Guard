@@ -178,3 +178,13 @@ triển khai SIEM, không có kết quả phát hiện hoặc đánh giá mô h�
   điền full SHA được push vào notebook, rồi chạy smoke trên Colab.
 - Dataset vẫn là cổng chặn huấn luyện thật: xem [kiểm toán public](public_data_audit.md)
   và [điều kiện Colab](colab_training.md). Chưa có run lab được gán nhãn.
+
+## Mốc 13: chuyển source lên GitHub
+
+- Đã push nhánh `main` lên `origin` theo yêu cầu của người dùng. Commit mã
+  nguồn `f74196cf61803ebf2a6a5bfcf2d4302fbad9bbfc` đã có trên remote;
+  notebook ghim commit này để Colab clone đúng mã đã kiểm thử.
+- Đã rà danh sách file Git và mẫu bí mật thông dụng trước push: không có raw
+  dataset, checkpoint, weights hoặc credential được theo dõi. Chưa chạy Colab.
+- Bước tiếp: chuẩn bị reviewed corpus đủ nhãn và ranh giới run, lưu raw trên
+  Drive, kiểm `readiness.json` rồi mới chạy huấn luyện thật.
