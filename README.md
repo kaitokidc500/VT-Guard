@@ -43,6 +43,17 @@ là đánh giá phát hiện thật. [Protocol](docs/experiment_protocol.md) mô
 manifest cần thiết trước khi huấn luyện thật. Notebook Colab chỉ điều phối
 module và cần GitHub URL/commit cùng reviewed manifest trên Drive.
 
+Pipeline Colab hiện điều phối logistic, luật + fusion, GRU, GRU attention và
+hybrid GRU + luật; điều kiện dữ liệu và cách chạy ở
+[docs/colab_training.md](docs/colab_training.md). Smoke CPU tổng hợp:
+
+```powershell
+python scripts/smoke_training.py
+```
+
+PyTorch chỉ cần cho các lệnh GRU; môi trường local đã thử dùng Python 3.11.15,
+PyTorch 2.7.1+cpu. Chưa có corpus có nhãn/run độc lập để báo kết quả thật.
+
 Khi có export lab, dùng `python scripts/review_runs.py prepare --spec
 configs/lab_runs.template.json --output-dir data/review` với một bản spec đã điền
 đường dẫn thật, rồi rà nhãn trong CSV. Lệnh `compile` và yêu cầu nhãn được mô tả

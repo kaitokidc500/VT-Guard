@@ -32,17 +32,42 @@ alerts/giờ hoặc độ trễ end-to-end.
 
 Bundle `cpu_event_baseline` chứa trọng số, từ vựng, ngưỡng, cấu hình, phiên
 schema/ATT&CK, provenance/checksum nguồn, metrics và inference tham chiếu.
-Loader kiểm SHA-256 và suy luận tham chiếu. Bundle này `deployable=false`:
-chưa có luật, fusion, sequence builder hay xác minh lab/SIEM. Artifact từ
-fixture luôn ghi `detector_status=synthetic_smoke`.
+Loader kiểm SHA-256 và suy luận tham chiếu. Artifact từ fixture luôn ghi
+`detector_status=synthetic_smoke`.
+
+## Mô hình chuỗi, luật và fusion
+
+Builder nhân quả nhóm theo run (nếu có), host và logon/user, tối đa 64 event
+trong 300 giây và 1024 nhóm hoạt động trong bộ nhớ. Luồng live không có run ID
+được giới hạn bằng host/identity và horizon; collector sau này phải xử lý đến
+trễ. Đây là giả thuyết cấu hình, cần điều chỉnh trên dữ liệu thật. GRU cơ bản
+và GRU attention dùng cùng token vocabulary train-only cùng delta thời gian.
+Sáu đầu sigmoid dự đoán attack và năm TTP đa nhãn. Mô hình attention dùng
+trọng số trên các trạng thái GRU hợp lệ; padding bị mask. Baseline chuỗi là GRU
+không attention. Train dùng checkpoint có thể resume trên Drive và dừng sớm
+theo validation; test chỉ tính sau khi chọn checkpoint/ngưỡng.
+
+Decision Tree nhị phân học trên token sự kiện từ train. Nhánh dương thành luật
+`required/forbidden`; chỉ giữ khi đạt support/precision trên validation. Luật
+chạy trong VT-Guard. Fusion trộn điểm AI với vector luật; trọng số và ngưỡng
+được chọn trên validation theo từng đầu. Phiên này dùng validation để chọn
+fusion cố định, chưa dùng mô hình fusion học bằng dự đoán ngoài fold. Báo cáo
+so sánh rule-only, logistic, GRU, GRU attention và hai tổ hợp hybrid, không
+giả định hybrid tốt hơn.
+
+Bundle `gru_rule_hybrid` tự chứa bundle GRU, luật, tham số fusion, checksum và
+reference inference. Tất cả bundle hiện `deployable=false`: chưa có kết quả
+thật, kiểm tra Colab/SIEM hoặc đánh giá theo phiên/độ trễ.
 
 ## Lệnh
 
 ```powershell
 python scripts/smoke_baseline.py
+python scripts/smoke_training.py
 python scripts/train_baseline.py --manifest PATH_TO_REVIEWED_MANIFEST --output PATH_TO_BUNDLE
 ```
 
-Notebook `notebooks/train_colab.ipynb` chỉ clone commit đã ghim, cài package,
-gọi smoke rồi gọi script train với manifest trên Drive. GitHub URL, commit và
-manifest thật chưa được cung cấp; notebook chưa được chạy trên Colab.
+Notebook `notebooks/train_colab.ipynb` clone commit ghim, smoke CPU, stage dữ
+liệu có checksum, kiểm readiness, gọi toàn bộ module train/fit/compare và lưu
+checkpoint/bundle trên Drive. Xem [hướng dẫn Colab](colab_training.md).
+GitHub URL, manifest thật và kiểm chứng Colab hiện chưa có.
